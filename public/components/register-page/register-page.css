@@ -20,14 +20,12 @@
 .register img {
   margin: 25px 115px 25px 114px;
 }
-
 .register form {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-
 .register form input {
   width: 270px;
   height: 54px;
@@ -42,7 +40,6 @@
   font-size: 18px;
   line-height: 22px;
 }
-
 .register-button {
   width: 140px;
   height: 46px;

@@ -1,0 +1,12 @@
+section.photos {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+section.photos img {
+  height: 238px;
+  width: 361px;
+  flex: 1 1 0;
+}
