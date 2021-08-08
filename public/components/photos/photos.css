@@ -7,6 +7,6 @@ section.photos {
 
 section.photos img {
   height: 238px;
-  min-width: 361px;
+  width: 361px;
   flex: 1 1 0;
 }
