@@ -1,14 +1,12 @@
 <template>
   <h1>NOTES 2021</h1>
+  <router-view />
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 export default {
   name: "App",
-  components: {
-    HelloWorld,
-  },
+  components: {}
 };
 </script>
 
