@@ -9,9 +9,9 @@
   },
   "dependencies": {
     "axios": "0.21.1",
-    "core-js": "^3.6.5",
-    "vue": "^3.0.0-0",
-    "vue-router": "4.0.10"
+    "core-js": "3.16.1",
+    "vue": "3.2.2",
+    "vue-router": "4.0.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -27,7 +27,10 @@
     "env": {
       "node": true
     },
-    "extends": ["plugin:vue/vue3-essential", "eslint:recommended"],
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
     "parserOptions": {
       "parser": "babel-eslint"
     },
@@ -36,7 +39,11 @@
       "no-empty": "warn"
     }
   },
-  "browserslist": ["> 1%", "last 2 versions", "not dead"],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
   "keywords": [],
   "description": ""
 }
