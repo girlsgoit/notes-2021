@@ -18,13 +18,13 @@
         <nav>
           <ul>
             <li>
-              <a href="#"> SETTINGS </a>
+              <router-link to="/settings"> SETTINGS </router-link>
             </li>
             <li>
-              <a href="#"> HELP </a>
+              <router-link to="/help"> HELP </router-link>
             </li>
             <li>
-              <a href="#"> SIGN OUT </a>
+              <a href="#" @click="signOut()"> SIGN OUT </a>
             </li>
           </ul>
         </nav>
@@ -34,10 +34,21 @@
 </template>
 
 <script>
+import emitter from "@/services/emitter";
+
 export default {
   name: "HeaderLogin",
   props: {
     user: {}
+  },
+  methods: {
+    signOut() {
+      localStorage.clear();
+
+      emitter.emit("auth");
+
+      this.$router.push({ path: "/" });
+    }
   }
 };
 </script>
