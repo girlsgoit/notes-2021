@@ -30,7 +30,12 @@
           >
             LOGIN
           </button>
-          <button class="register-button registerButton">REGISTER</button>
+          <button
+            @click.prevent="onregisterButton($event)"
+            class="register-button registerButton"
+          >
+            REGISTER
+          </button>
         </div>
       </form>
     </div>
@@ -87,6 +92,9 @@ export default {
     },
     gotoDashboard(event) {
       this.$router.push(`/Dashboard/`);
+    },
+    onregisterButton(event) {
+      this.$router.push(`/Register/`);
     }
   }
 };
