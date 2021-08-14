@@ -12,6 +12,8 @@
       v-for="note in notes"
       :key="note.id"
       :note="note.note_elements[0]"
+      :createdAt="note.created_at"
+      @click="goToNote(note.id)"
     />
   </section>
 </template> 
@@ -43,6 +45,9 @@ export default {
   methods: {
     newNote(event) {
       this.$router.push("/newnote");
+    },
+    goToNote(noteId) {
+      this.$router.push(`/notes/${noteId}`);
     }
   }
 };

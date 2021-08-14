@@ -8,13 +8,16 @@
     <div v-if="note.tag === 'img'" class="img-container">
       <img :src="note.content" />
     </div>
+
+    <p class="data">{{ createdAt }}</p>
   </div>
 </template>
 <script>
 export default {
   name: "NoteCard",
   props: {
-    note: {}
+    note: {},
+    createdAt: String
   }
 };
 </script>
@@ -40,6 +43,7 @@ export default {
   height: 173px;
   position: relative;
   display: flex;
+  cursor: pointer;
 }
 
 .data {
