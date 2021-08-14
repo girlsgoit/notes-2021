@@ -8,7 +8,7 @@
 <script>
 import emitter from "@/services/emitter";
 import HeaderLogin from "./components/HeaderLogin";
-import HeaderLogout from "./components/HeaderLogin";
+import HeaderLogout from "./components/HeaderLogout";
 
 export default {
   name: "App",
