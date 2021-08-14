@@ -2,7 +2,7 @@
   <body>
     <section class="register-page">
       <div class="register">
-        <!-- <img src="assets/app-view/logo.png" alt="logo" /> -->
+        <img src="./assets/logo.svg" alt="logo" />
         <form>
           <input
             v-model="userName"
@@ -39,17 +39,17 @@
             placeholder="Confirm Password"
             required
           />
-
+          <p v-if="isRegisterCompleted">V-ati inregistrat cu succes!</p>
           <div class="buttons">
             <button
-              @click="onRegisterClick($event)"
+              @click.prevent="onRegisterClick($event)"
               class="register-button registerButton"
             >
               Register
             </button>
 
             <button
-              @click="onLoginClick($event)"
+              @click.prevent="onLoginClick($event)"
               class="register-button loginButton"
             >
               Login
@@ -73,14 +73,21 @@ export default {
 
   data() {
     return {
+      userId: null,
+
       userName: "",
 
       fullName: "",
 
       password: "",
 
-      confirmPassword: ""
+      confirmPassword: "",
+
+      isRegisterCompleted: false
     };
+  },
+  async created() {
+    // const response = await axios.get("https://https://notes-api.girlsgoit.org/docs​/users​/" + this.userId + "/");
   },
 
   methods: {
@@ -94,24 +101,36 @@ export default {
       } else if (this.confirmPassword === "") {
         alert("Confirm Password empty");
       } else if (this.password.length < 6) {
-        alert("Ppassword too short (minimum of 6 digits)");
+        alert("Password too short (minimum of 6 digits)");
       } else if (this.password !== this.confirmPassword) {
-        alert("Thhe passwords don't match");
+        alert("The passwords don't match");
+      } else if (this.userName === this.userNames) {
+        alert("Username taken");
       } else {
+        const splittedFullName = this.fullName.split(" ");
+        const firstName = splittedFullName[0];
+        const lastName = splittedFullName[1];
+
         var data = {
-          userName: "",
+          username: this.userName,
 
-          fullName: "",
+          first_name: firstName,
 
-          password: "",
+          last_name: lastName,
 
-          confirmPassword: ""
+          password: this.password
         };
 
         try {
-          //axios.post("dsadsa", data)
-        } catch (error) {}
-        // alert("registration succeded")
+          let result = await axios.post(
+            "https://notes-api.girlsgoit.org/users/register/",
+            data
+          );
+          this.isRegisterCompleted = true;
+          console.log(result);
+        } catch (error) {
+          alert("Username taken");
+        }
       }
     },
 
@@ -128,9 +147,9 @@ export default {
 .register-page {
   display: flex;
 
-  align-item: center;
+  align-items: center;
 
-  juify-content: center;
+  justify-content: center;
 
   height: 100vh;
 

@@ -1,126 +1,115 @@
-.settings {
-  position: absolute;
-  left: 18%;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 250;
-  font-size: 3.5rem;
-  line-height: 4rem;
-  color: #393939;
-}
-
-.save-settings {
-  position: absolute;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 28px;
-  color: #ffffff;
-  background-color: #2ea1f8;
-  border-radius: 5%;
-  padding: 10px;
+.settings-bara {
   display: flex;
-  right: 20%;
-  top: 7.5%;
+  justify-content: space-between;
+  padding: 85px 0px;
+  margin: 0 auto;
+  max-width: 960px;
+  align-items: center;
 }
 
-.full-name {
-  position: absolute;
-  width: 30%;
-  height: 2%;
-  left: 17%;
-  top: 22%;
-  font-family: Roboto;
+.settings-text h1 {
+  font-family: Roboto, sans-serif;
+  font-size: 56px;
+  font-weight: 300;
+  margin: 10px;
+}
+
+.settings-button {
+  max-height: 4rem;
+  font-size: 15px;
+  text-align: center;
+  line-height: 15px;
+  font-family: Roboto, sans-serif;
   font-style: normal;
   font-weight: normal;
+  color: white;
+  background-color: #2ea1f8;
+  padding: 21px 28px;
+  border-radius: 5px;
+  position: relative;
+  border: 0px;
+  cursor: pointer;
+}
+/* 1 rem  = 16px */
+
+@media screen and (max-width: 570px) {
+  .settings-bara {
+    padding: 50px 0;
+    flex-direction: column;
+    align-items: center;
+  }
+  .settings-text h1 {
+    font-size: 40px;
+  }
+}
+.settings {
+  font-family: roboto;
   font-size: 18px;
-  line-height: 22px;
-  color: #a9a9a9;
-  background: none;
+  padding-top: 50px;
+}
+
+.settings .settings-form {
+  display: flex;
+  margin: 0 -15px;
+}
+
+.settings .inputs {
+  flex: 0 0 299px;
+  max-width: 299px;
+}
+
+.settings .textarea {
+  flex: 1 0 auto;
+}
+
+.settings .inputs,
+.settings .textarea {
+  padding: 0 15px;
+}
+.settings input {
+  display: block;
+  width: 100%;
+  height: 66px;
+  padding-left: 21px;
+  margin: 0 0 20px 0;
+  background: #ffffff;
   border: 1px solid #dfdfdf;
   box-sizing: border-box;
   border-radius: 4px;
-  padding: 1.5%;
-  line-height: 5px;
 }
 
-.old-password {
-  position: absolute;
-  width: 30%;
-  height: 2%;
-  left: 17%;
-  top: 30%;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  color: #a9a9a9;
-  background: none;
+.settings input:last-child {
+  margin-bottom: 0;
+}
+.settings textarea {
+  resize: none;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  padding-left: 21px;
+  padding-top: 23px;
+  background: #ffffff;
   border: 1px solid #dfdfdf;
   box-sizing: border-box;
   border-radius: 4px;
-  padding: 1.5%;
-  line-height: 5px;
 }
-
-.new-password {
-  position: absolute;
-  width: 30%;
-  height: 2%;
-  left: 17%;
-  top: 38.5%;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  color: #a9a9a9;
-  background: none;
-  border: 1px solid #dfdfdf;
-  box-sizing: border-box;
-  border-radius: 4px;
-  padding: 1.5%;
-  line-height: 5px;
+.settings .settings-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
+@media screen and (max-width: 800px) {
+  .settings .settings-form {
+    justify-content: center;
+    flex-direction: column;
+  }
 
-.confirm-password {
-  position: absolute;
-  width: 30%;
-  height: 2%;
-  left: 17%;
-  top: 47%;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  color: #a9a9a9;
-  background: none;
-  border: 1px solid #dfdfdf;
-  box-sizing: border-box;
-  border-radius: 4px;
-  padding: 1.5%;
-  line-height: 5px;
-}
+  .settings input:last-child {
+    margin-bottom: 20px;
+  }
 
-.custom-theme {
-  position: absolute;
-  width: 32%;
-  height: 31.5%;
-  left: 47.5%;
-  top: 22%;
-  right: 32%;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  color: #a9a9a9;
-  padding: 1%;
-  background: none;
-  border: 1px solid #dfdfdf;
-  box-sizing: border-box;
-  border-radius: 4px;
+  .settings .inputs {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
