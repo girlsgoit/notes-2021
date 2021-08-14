@@ -85,8 +85,6 @@ export default {
           localStorage.setItem("FULL_NAME", responseData.full_name || "");
 
           if (response.status === 200) {
-            console.log(response.data);
-
             emitter.emit("auth");
 
             this.gotoDashboard();
