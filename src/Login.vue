@@ -30,7 +30,12 @@
           >
             LOGIN
           </button>
-          <button class="register-button registerButton">REGISTER</button>
+          <button
+            @click.prevent="onregisterButton($event)"
+            class="register-button registerButton"
+          >
+            REGISTER
+          </button>
         </div>
       </form>
     </div>
@@ -61,16 +66,21 @@ export default {
         };
 
         try {
-          const response = await axios.post(
+          let response = await axios.post(
             "https://notes-api.girlsgoit.org/users/login",
             data
           );
 
-          const responseData = response.data;
+          let responseData = response.data;
 
           localStorage.setItem("NOTES_AUTH", responseData.token);
 
           localStorage.setItem("USER_NAME", this.input.username);
+          response = await axios.get(
+            "https://notes-api.girlsgoit.org/users/me"
+          );
+          responseData = response.data;
+          localStorage.setItem("USER_ID", responseData.id);
 
           if (response.status === 200) {
             console.log(response.data);
@@ -87,6 +97,9 @@ export default {
     },
     gotoDashboard(event) {
       this.$router.push(`/Dashboard/`);
+    },
+    onregisterButton(event) {
+      this.$router.push(`/Register/`);
     }
   }
 };
