@@ -90,7 +90,7 @@ export default {
 
 .notes-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
 }
 
 @media screen and (max-width: 570px) {
@@ -101,6 +101,12 @@ export default {
   }
   .dashboard-text h1 {
     font-size: 40px;
+  }
+}
+
+@media screen and (min-width: 570px) {
+  .notes-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>
