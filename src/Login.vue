@@ -45,6 +45,7 @@
 
 <script>
 import axios from "axios";
+import emitter from "@/services/emitter";
 
 export default {
   name: "Login",
@@ -56,7 +57,7 @@ export default {
       }
     };
   },
-
+  created() {},
   methods: {
     async onloginButton(event) {
       if (this.input.username !== "" && this.input.password !== "") {
@@ -81,16 +82,16 @@ export default {
           );
           responseData = response.data;
           localStorage.setItem("USER_ID", responseData.id);
+          localStorage.setItem("FULL_NAME", responseData.full_name || "");
 
           if (response.status === 200) {
-            //console.log(response.data);
+            emitter.emit("auth");
+
             this.gotoDashboard();
           }
         } catch (val) {
           alert("User nu exista");
         }
-
-        this.$emit("authenticated", true);
       } else {
         console.log("A username and password must be present");
       }
