@@ -3,7 +3,7 @@
     <div class="header-container">
       <div class="header-left">
         <a href="#" class="headerleft">
-          {{ user.fullName || user.username }}
+          {{ user?.fullName || user?.username }}
         </a>
       </div>
       <div class="header-middle">

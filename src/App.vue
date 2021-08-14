@@ -29,7 +29,6 @@ export default {
   },
   methods: {
     updateUserData() {
-      console.log("Here");
       this.token = localStorage.getItem("NOTES_AUTH");
 
       if (this.token) {
