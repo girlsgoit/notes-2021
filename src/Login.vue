@@ -66,16 +66,21 @@ export default {
         };
 
         try {
-          const response = await axios.post(
+          let response = await axios.post(
             "https://notes-api.girlsgoit.org/users/login",
             data
           );
 
-          const responseData = response.data;
+          let responseData = response.data;
 
           localStorage.setItem("NOTES_AUTH", responseData.token);
 
           localStorage.setItem("USER_NAME", this.input.username);
+          response = await axios.get(
+            "https://notes-api.girlsgoit.org/users/me"
+          );
+          responseData = response.data;
+          localStorage.setItem("USER_ID", responseData.id);
 
           if (response.status === 200) {
             console.log(response.data);
