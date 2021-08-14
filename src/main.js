@@ -1,10 +1,11 @@
 import { createApp } from "vue";
+import { createWebHistory, createRouter } from "vue-router";
+import Axios from "axios";
 import App from "./App.vue";
 import Landing from "./Landing.vue";
 import Note from "./Note.vue";
 import Login from "./Login.vue";
 import Dashboard from "./Dashboard.vue";
-import { createWebHistory, createRouter } from "vue-router";
 import Register from "./Register.vue";
 
 function loginGuard(from, to, next) {
