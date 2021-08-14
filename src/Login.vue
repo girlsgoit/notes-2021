@@ -83,7 +83,7 @@ export default {
           localStorage.setItem("USER_ID", responseData.id);
 
           if (response.status === 200) {
-            console.log(response.data);
+            //console.log(response.data);
             this.gotoDashboard();
           }
         } catch (val) {
