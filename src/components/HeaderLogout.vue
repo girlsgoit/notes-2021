@@ -2,21 +2,21 @@
   <header class="header">
     <div class="header-container">
       <div class="header-left">
-        <a href="#" class="headerleft"> SIGN IN </a>
+        <router-link to="/login" class="headerleft"> SIGN IN </router-link>
       </div>
       <div class="header-middle">
-        <a href="#" class="logo">
+        <router-link to="/landing" class="logo">
           <img
             src="https://s3-alpha-sig.figma.com/img/eb24/ca1c/6b46f3629797526e406626fc13be7290?Expires=1629072000&Signature=DFPxeo1LPnVum8j3nD3Ykcg1wa3XgChaaHThZNMt1uSjuZ33HaSmZJns6C87ByrA8Pc0yleE-2xkB2FX-NyubBrzBWoKNYdQtY1LfTgeemenhsLzNRcFfgkdAmxAhlRsyAanTAD0ueuiEPJauYEmTgqpT0vFQuKG3mgBY0wCRiiopXsKKPFKtIbqbVZ6TBgzqr-iEdV4kABsKuTStrXEOcugmlRgg-7-AVKT1c-aJtLWTKDPwVO-e9gv9kJ1O7Bf1FTWOdY0P8BXCdgxQQW1WOoPvmWd3Pn7LKZzagEeq5gAFimAf1m11SZ6DL3BI3k-Tj3ZuFSgvG9x~iH8WSjbFw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
             alt="Logo"
           />
-        </a>
+        </router-link>
       </div>
       <div class="header-right">
         <nav>
           <ul>
             <li>
-              <a href="#"> REGISTER </a>
+              <router-link to="/register"> REGISTER </router-link>
             </li>
           </ul>
         </nav>
