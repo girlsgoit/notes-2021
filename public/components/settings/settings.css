@@ -1,0 +1,126 @@
+.settings {
+  position: absolute;
+  left: 18%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 250;
+  font-size: 3.5rem;
+  line-height: 4rem;
+  color: #393939;
+}
+
+.save-settings {
+  position: absolute;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 28px;
+  color: #ffffff;
+  background-color: #2ea1f8;
+  border-radius: 5%;
+  padding: 10px;
+  display: flex;
+  right: 20%;
+  top: 7.5%;
+}
+
+.full-name {
+  position: absolute;
+  width: 30%;
+  height: 2%;
+  left: 17%;
+  top: 22%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #a9a9a9;
+  background: none;
+  border: 1px solid #dfdfdf;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 1.5%;
+  line-height: 5px;
+}
+
+.old-password {
+  position: absolute;
+  width: 30%;
+  height: 2%;
+  left: 17%;
+  top: 30%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #a9a9a9;
+  background: none;
+  border: 1px solid #dfdfdf;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 1.5%;
+  line-height: 5px;
+}
+
+.new-password {
+  position: absolute;
+  width: 30%;
+  height: 2%;
+  left: 17%;
+  top: 38.5%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #a9a9a9;
+  background: none;
+  border: 1px solid #dfdfdf;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 1.5%;
+  line-height: 5px;
+}
+
+.confirm-password {
+  position: absolute;
+  width: 30%;
+  height: 2%;
+  left: 17%;
+  top: 47%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #a9a9a9;
+  background: none;
+  border: 1px solid #dfdfdf;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 1.5%;
+  line-height: 5px;
+}
+
+.custom-theme {
+  position: absolute;
+  width: 32%;
+  height: 31.5%;
+  left: 47.5%;
+  top: 22%;
+  right: 32%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #a9a9a9;
+  padding: 1%;
+  background: none;
+  border: 1px solid #dfdfdf;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
