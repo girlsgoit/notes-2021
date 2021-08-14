@@ -5,13 +5,17 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Delete",
   data() {
     return {};
   },
   methods: {
-    goToDashboard() {
+    async goToDashboard() {
+      await axios.delete(
+        `https://notes-api.girlsgoit.org/notes/${this.noteId}/`
+      );
       this.$router.push("/dashboard");
     }
   }
