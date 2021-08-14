@@ -4,7 +4,7 @@ import Landing from "./Landing.vue";
 import Note from "./Note.vue";
 import Dashboard from "./Dashboard.vue";
 import { createWebHistory, createRouter } from "vue-router";
-import Register from "./pages/Register.vue";
+import Register from "./Register.vue";
 
 const routes = [
   { path: "/", component: Landing },
