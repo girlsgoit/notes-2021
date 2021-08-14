@@ -1,11 +1,21 @@
 <template>
   <div class="rama">
-    <h1 class="text">You have a nice heart</h1>
+    <h1 v-if="note.tag === 'h1'" class="text">{{ note.content }}</h1>
+    <h2 v-if="note.tag === 'h2'" class="text">{{ note.content }}</h2>
+    <h3 v-if="note.tag === 'h3'" class="text">{{ note.content }}</h3>
+    <p v-if="note.tag === 'p'" class="text">{{ note.content }}</p>
+
+    <div v-if="note.tag === 'img'" class="img-container">
+      <img :src="note.content" />
+    </div>
   </div>
 </template>
 <script>
 export default {
-  name: "NoteCard"
+  name: "NoteCard",
+  props: {
+    note: {}
+  }
 };
 </script>
 <style  scoped>
@@ -75,7 +85,7 @@ export default {
   line-height: 187%;
 }
 
-.fetele img {
+.img-container img {
   width: 460px;
   height: 270px;
   position: absolute;

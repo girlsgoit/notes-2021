@@ -5,16 +5,14 @@
     </div>
 
     <button @click="newNote($event)" class="dashboard-button">NEW NOTE</button>
+  </section>
 
-    <section class="notes-section">
-      <div class="column">
-        <NoteCard v-for="note in leftColumnsNotes" :key="note.id"/>
-      </div>
-      <div class="column">
-        <NoteCard v-for="note in rightColumnsNotes" :key="note.id"/>
-      </div>
-    </section> 
-    <!-- <NoteCard v-for="note in notes" :key="note.id" /> -->
+  <section class="notes-container">
+    <NoteCard
+      v-for="note in notes"
+      :key="note.id"
+      :note="note.note_elements[0]"
+    />
   </section>
 </template> 
 
@@ -27,41 +25,25 @@ export default {
   components: { NoteCard },
   data() {
     return {
-      notes: [],
-      rightColumnsNotes: [],
-      leftColumnsNotes: []
+      notes: []
     };
   },
   async created() {
     const userID = localStorage.getItem("USER_ID");
 
     const data = { user: userID };
+
     const response = await axios.get(
       "https://notes-api.girlsgoit.org/notes",
       data
     );
 
     this.notes = response.data;
-    console.log(this.notes);
-    for (let i = 0; i < this.notes.length; i++) {
-      if (i % 2 === 0) {
-        this.rightColumnsNotes.push(this.notes[i]);
-      } else {
-        this.leftColumnsNotes.push(this.notes[i]);
-      }
-    }
-    console.log("1");
-    console.log(this.leftColumnsNotes);
-    console.log("2");
-    console.log(this.rightColumnsNotes);
   },
   methods: {
     newNote(event) {
       this.$router.push("/newnote");
     }
-    // async getNotes(event) {
-    //   await axios.get("https://notes-api.girlsgoit.org/notes", notes);
-    // }
   }
 };
 </script>
@@ -100,6 +82,11 @@ export default {
   cursor: pointer;
 }
 /* 1 rem  = 16px */
+
+.notes-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
 
 @media screen and (max-width: 570px) {
   .dashboard {
