@@ -1,25 +1,3 @@
-<template>
-  <section class="dashboard">
-    <div class="dashboard-text">
-      <h1>Dashboard</h1>
-    </div>
-
-    <button @click="newNote($event)" class="dashboard-button">NEW NOTE</button>
-  </section>
-</template> 
-
-<script>
-export default {
-  name: "Dashboard",
-  methods: {
-    newNote(event) {
-      this.$router.push("/newnote");
-    }
-  }
-};
-</script>
-
-<style scoped>
 .dashboard {
   display: flex;
   justify-content: space-between;
@@ -64,4 +42,3 @@ export default {
     font-size: 40px;
   }
 }
-</style>
