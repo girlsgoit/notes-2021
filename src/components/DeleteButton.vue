@@ -1,26 +1,47 @@
 <template>
   <div>
-    <button class="delete-button" @click="goToDashboard()">Delete</button>
+    <button class="delete-button" @click="emitDelete()">Delete</button>
   </div>
 </template>
 
 <script>
-import axios from "axios";
 export default {
   name: "Delete",
   data() {
     return {};
   },
   methods: {
-    async goToDashboard() {
-      await axios.delete(
-        `https://notes-api.girlsgoit.org/notes/${this.noteId}/`
-      );
-      this.$router.push("/dashboard");
+    emitDelete() {
+      this.$emit("delete-note");
     }
   }
 };
 </script>
 
 <style scoped>
+.delete-button {
+  background-color: white;
+  color: #fa4820;
+  padding: 14px 20px;
+  margin: 20px;
+  border: 1px solid #fa4820;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.5;
+  border-radius: 5px;
+  width: 960px;
+  transition: opacity 0.2s ease-in;
+}
+.delete-button:hover {
+  opacity: 1;
+}
+.delete-button-container {
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 960px) {
+  .delete-button {
+    width: 100%;
+  }
+}
 </style>

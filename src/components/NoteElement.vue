@@ -1,13 +1,27 @@
 <template>
   <h1 v-if="tag === 'h1'">{{ content }}</h1>
+  <h2 v-if="tag === 'h2'">{{ content }}</h2>
+  <h3 v-if="tag === 'h3'">{{ content }}</h3>
 
   <p v-if="tag === 'p'">
     {{ content }}
   </p>
 
-  <div class="note-image">
-    <img v-if="tag === 'img'" :src="content" />
+  <div v-if="tag === 'img'" class="note-image">
+    <img :src="content" />
   </div>
+
+  <div v-if="tag === 'link'" class="link">
+    <a :href="content">
+      {{ content }}
+    </a>
+  </div>
+
+  <ul type="disc" v-if="tag === 'ul'">
+    <li v-for="item in content.split('\n')" :key="item">
+      {{ item }}
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -21,59 +35,61 @@ export default {
 </script>
 
 <style scoped>
-.note h1 {
+h1 {
   margin-top: 0;
   font-size: 3.5rem;
   line-height: 4rem;
   color: #393939;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
-.note p {
+p {
   align-content: center;
   font-size: 1.313rem;
   line-height: 2.25rem;
   color: #393939;
-  margin-bottom: 60px;
+  margin-top: 0;
+  margin-bottom: 10px;
 }
-.note div.note-image {
+div.note-image {
   object-fit: cover;
-  margin: 0 -4.4em 0em -4.45rem;
 }
-.note img {
+img {
   max-width: 100%;
   height: auto;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
-.note h2 {
+h2 {
   font-size: 2rem;
   line-height: 2.25rem;
   color: #393939;
   margin-top: 0;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
-.note div.link {
-  margin-bottom: 1.3rem;
+div.link {
+  margin-bottom: 10px;
   color: blue;
 }
-.note .link a {
+.link a {
   text-decoration-line: none;
   color: blue;
   font-size: 1.3rem;
   margin-bottom: 70px;
 }
-.note li {
+li {
   font-size: 1.313rem;
   line-height: 2.25rem;
   color: #000000;
   padding: 5px;
   position: relative;
 }
-.note ul {
-  margin: 0 0 3em 0;
+ul {
+  margin: 0 0 10px 0;
 }
-.note h3 {
+h3 {
   font-size: 1.625rem;
   line-height: 1.875rem;
   color: #393939;
+  margin-bottom: 10px;
 }
 </style>
