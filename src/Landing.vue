@@ -88,38 +88,35 @@
 
     <section class="all-logos">
       <div class="logo">
-        <a class="logo-container" href="https://mecc.gov.md/">
+        <a class="logo-container" href="https://www.led.md/">
           <img
-            src="/assets/partners/ministerul.png"
-            alt="Ministerul Educației, Culturii și Cercetării al Republicii Moldova"
-          />
-        </a>
-
-        <a class="logo-container" href="https://md.mfa.lt/">
-          <img
-            src="/assets/partners/lithuania.png"
-            alt="Embassy of the Republic of Lithuania to the Republic of Moldova"
+            src="/assets/partners/led.png"
+            alt="Lichtenstein Development Service"
           />
         </a>
 
         <a class="logo-container" href="https://www.crunchyroll.com/en-gb">
-          <img src="/assets/partners/crunchyroll.svg" alt="Crunchyroll" />
+          <img src="/assets/partners/crunchyroll.png" alt="Crunchyroll" />
         </a>
 
         <a class="logo-container" href="https://youngfeministfund.org/">
           <img src="/assets/partners/frida.svg" alt="Frida" />
         </a>
 
+        <a class="logo-container">
+          <img src="/assets/partners/slovakaid.png" alt="SlovakAid" />
+        </a>
+
         <a class="logo-container" href="https://facebook.com/atelier99.org/">
           <img src="/assets/partners/atelier99.svg" alt="Atelier99" />
         </a>
 
-        <a class="logo-container" href="https://www.tekedu.org/">
-          <img src="/assets/partners/tekedu.png" alt="Tekedu" />
+        <a class="logo-container" >
+          <img src="/assets/partners/fablab.png" alt="FabLab" />
         </a>
 
-        <a class="logo-container" href="https://www.orange.md/">
-          <img src="/assets/partners/orange.svg" alt="Orange" />
+        <a class="logo-container" href="https://www.tekedu.org/">
+          <img src="/assets/partners/tekedu.png" alt="Tekedu" />
         </a>
 
         <a class="logo-container" href="https://www.goparrot.ai/">
