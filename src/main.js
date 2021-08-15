@@ -22,6 +22,7 @@ const routes = [
   { path: "/", component: Landing },
   { path: "/register", component: Register },
   { path: "/notes/:noteId", component: Note },
+  { path: "/newnote", component: Note },
   { path: "/dashboard", component: Dashboard },
   { path: "/login", component: Login },
   { path: "/:pathMatch(.*)*", component: Landing }

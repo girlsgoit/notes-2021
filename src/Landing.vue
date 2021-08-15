@@ -277,7 +277,7 @@ export default {
 }
 .grid_container img {
   width: 100%;
-  height: auto;
+  height: 34rem;
   object-fit: cover;
   transition: all 0.2s ease-in;
 }

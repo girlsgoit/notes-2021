@@ -2,11 +2,7 @@
   <div>
     <section class="rectangle" v-if="isVisible">
       <div class="note-element">
-        <textarea
-          class="input1"
-          placeholder="Write your text here"
-          v-model="text"
-        ></textarea>
+        <textarea class="input1" placeholder="Write your text here" v-model="text"></textarea>
         <br />
       </div>
       <div class="buttons">
