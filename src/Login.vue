@@ -72,25 +72,24 @@ export default {
             data
           );
 
-          let responseData = response.data;
-
-          localStorage.setItem("NOTES_AUTH", responseData.token);
-
-          localStorage.setItem("USER_NAME", this.input.username);
-          response = await axios.get(
-            "https://notes-api.girlsgoit.org/users/me"
-          );
-          responseData = response.data;
-          localStorage.setItem("USER_ID", responseData.id);
-          localStorage.setItem("FULL_NAME", responseData.full_name || "");
-
           if (response.status === 200) {
+            localStorage.setItem("NOTES_AUTH", response.data.token);
+            localStorage.setItem("USER_NAME", this.input.username);
+
+            response = await axios.get(
+              "https://notes-api.girlsgoit.org/users/me"
+            );
+
+            localStorage.setItem("USER_ID", response.data.id);
+            localStorage.setItem("FULL_NAME", response.data.full_name || "");
+
             emitter.emit("auth");
 
             this.gotoDashboard();
           }
-        } catch (val) {
-          alert("User nu exista");
+        } catch (error) {
+          console.log(error);
+          alert("Invalid username or password.");
         }
       } else {
         console.log("A username and password must be present");
