@@ -132,6 +132,7 @@ export default {
           this.isRegisterCompleted = true;
           console.log(result);
         } catch (error) {
+          console.log(error);
           alert("Username taken");
         }
       }
