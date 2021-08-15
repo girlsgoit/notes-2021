@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="delete-button-container">
     <button class="delete-button" @click="emitDelete()">Delete</button>
   </div>
 </template>
