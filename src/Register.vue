@@ -174,7 +174,7 @@ export default {
 
   border-radius: 5px;
 
-  background: white solid;
+  background: white;
 }
 
 .register img {

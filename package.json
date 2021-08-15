@@ -37,7 +37,8 @@
     },
     "rules": {
       "no-unused-vars": "warn",
-      "no-empty": "warn"
+      "no-empty": "warn",
+      "no-irregular-whitespace": "warn"
     }
   },
   "browserslist": [
