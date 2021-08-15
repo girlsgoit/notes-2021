@@ -41,6 +41,8 @@ export default {
     );
 
     this.notes = response.data;
+
+    console.log(this.notes);
   },
   methods: {
     newNote(event) {
