@@ -74,16 +74,16 @@
 
     <section class="grid_container">
       <img src="/assets/pics/summer1.jpg" alt="images1" />
-      <img src="/assets/pics/summer2.jpg" alt="images2" />
+      <img src="/assets/pics/summer2.png" alt="images2" />
 
       <img src="/assets/pics/summer3.png" alt="images3" />
-      <img src="/assets/pics/summer4.png" alt="images4" />
+      <img src="/assets/pics/summer4.jpg" alt="images4" />
 
-      <img src="/assets/pics/summer5.png" alt="images5" />
-      <img src="/assets/pics/summer6.png" alt="images6" />
+      <img src="/assets/pics/summer5.jpg" alt="images5" />
+      <img src="/assets/pics/summer6.jpg" alt="images6" />
 
       <img src="/assets/pics/summer7.jpg" alt="images7" />
-      <img src="/assets/pics/summer8.png" alt="images8" />
+      <img src="/assets/pics/summer8.jpg" alt="images8" />
     </section>
 
     <section class="all-logos">
