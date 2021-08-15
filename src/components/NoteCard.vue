@@ -37,7 +37,7 @@ export default {
   padding: 10px;
   box-shadow: 0px 2px 27px 0px #e6e6e680;
   border-radius: 10px;
-  margin: 10px 20px;
+  margin: 10px auto;
   background: #ffffff;
   width: 460px;
   height: 173px;
