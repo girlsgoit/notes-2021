@@ -62,8 +62,8 @@ export default {
 
       try {
         const response = await axiosMethod(
-          `https://notes-api.girlsgoit.org/notes/${
-            this.isNewNote ? "" : this.noteId + "/"
+          `https://notes-api.girlsgoit.org/notes${
+            this.isNewNote ? "" : "/" + this.noteId + "/"
           }`,
           {
             note_elements: this.blocks
