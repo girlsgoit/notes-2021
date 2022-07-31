@@ -10,7 +10,7 @@
           type="text"
           name="username"
           id="username"
-          placeholder="Username"
+          :placeholder="Username"
           required
           v-model="input.username"
         />
@@ -19,22 +19,22 @@
           type="password"
           name="password"
           id="password"
-          placeholder="Password"
+          :placeholder="Password"
           required
           v-model="input.password"
         />
         <div class="buttons">
           <button
-            @click.prevent="onloginButton($event)"
+            @click.prevent="onloginButton()"
             class="register-button loginButton"
           >
-            LOGIN
+            {{ LoginText }}
           </button>
           <button
             @click.prevent="onregisterButton($event)"
             class="register-button registerButton"
           >
-            REGISTER
+            {{ RegisterText }}
           </button>
         </div>
       </form>
@@ -57,9 +57,24 @@ export default {
       }
     };
   },
-  created() {},
+  computed: {
+    Username() {
+      return this.$route.params.lang === "ro" ? "Nume de utilizator" : "Имя пользователя";
+    },
+    Password() {
+      return this.$route.params.lang === "ro" ? "Parola" : "Пароль";
+    },
+    LoginText() {
+      return this.$route.params.lang === "ro" ? "Logare" : "Вход";
+    },
+    RegisterText() {
+      return this.$route.params.lang === "ro" ? "Înregistrare" : "Регистрация";
+    }
+  },
+  created() {
+  },
   methods: {
-    async onloginButton(event) {
+    async onloginButton() {
       if (this.input.username !== "" && this.input.password !== "") {
         const data = {
           username: this.input.username,
@@ -68,7 +83,7 @@ export default {
 
         try {
           let response = await axios.post(
-            "https://notes-api.girlsgoit.org/users/login",
+            "https://notes-api.girlsgoit.org/login/",
             data
           );
 
@@ -77,7 +92,7 @@ export default {
             localStorage.setItem("USER_NAME", this.input.username);
 
             response = await axios.get(
-              "https://notes-api.girlsgoit.org/users/me"
+              "https://notes-api.girlsgoit.org/users/me/"
             );
 
             localStorage.setItem("USER_ID", response.data.id);
@@ -96,15 +111,14 @@ export default {
       }
     },
     gotoDashboard(event) {
-      this.$router.push(`/Dashboard/`);
+      this.$router.push(`/${this.$route.params.lang}/dashboard/`);
     },
     onregisterButton(event) {
-      this.$router.push(`/Register/`);
+      this.$router.push(`/${this.$route.params.lang}/register/`);
     }
   }
 };
 </script>
-      
 
 <style scoped>
 .login-page {

@@ -1,10 +1,11 @@
 <template>
   <section class="dashboard">
     <div class="dashboard-text">
-      <h1>Dashboard</h1>
+      <h1 v-if="$route.params.lang === 'ro'">Dashboard</h1>
+      <h1 v-else> Доска объявлений</h1>
     </div>
 
-    <button @click="newNote($event)" class="dashboard-button">NEW NOTE</button>
+    <button @click="newNote($event)" class="dashboard-button">{{ NewNoteText }}</button>
   </section>
 
   <section class="notes-container">
@@ -16,7 +17,7 @@
       @click="goToNote(note.id)"
     />
   </section>
-</template> 
+</template>
 
 <script>
 import axios from "axios";
@@ -29,6 +30,11 @@ export default {
     return {
       notes: []
     };
+  },
+  computed: {
+    NewNoteText() {
+      return this.$route.params.lang === "ro" ? "Notita noua" : "новая запись";
+    }
   },
   async created() {
     const userID = localStorage.getItem("USER_ID");
@@ -44,10 +50,10 @@ export default {
   },
   methods: {
     newNote(event) {
-      this.$router.push("/newnote");
+      this.$router.push(`/${this.$route.params.lang}/newnote`);
     },
     goToNote(noteId) {
-      this.$router.push(`/notes/${noteId}`);
+      this.$router.push(`/${this.$route.params.lang}/notes/${noteId}`);
     }
   }
 };
@@ -86,6 +92,7 @@ export default {
   border: 0px;
   cursor: pointer;
 }
+
 /* 1 rem  = 16px */
 
 .notes-container {
@@ -99,6 +106,7 @@ export default {
     flex-direction: column;
     align-items: center;
   }
+
   .dashboard-text h1 {
     font-size: 40px;
   }

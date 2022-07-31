@@ -63,6 +63,7 @@ export default {
       const response = await axios.get(
           `https://notes-api.girlsgoit.org/notes/${this.noteId}/`
       );
+      console.log(response);
       this.noteElements = response.data.note_elements;
     }
 
@@ -84,7 +85,7 @@ export default {
           `https://notes-api.girlsgoit.org/notes/${this.noteId}/`
       );
 
-      this.$router.push("/dashboard");
+      this.$router.push(`/${this.$route.params.lang}/dashboard`);
     }
   }
 };

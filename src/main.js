@@ -19,13 +19,17 @@ function loginGuard(from, to, next) {
 }
 
 const routes = [
-  { path: "/", component: Landing },
-  { path: "/register", component: Register },
-  { path: "/notes/:noteId", component: Note },
-  { path: "/newnote", component: Note },
-  { path: "/dashboard", component: Dashboard },
-  { path: "/login", component: Login },
-  { path: "/:pathMatch(.*)*", component: Landing }
+  {
+    path: "/",
+    redirect: "/ro",
+  },
+  { path: "/:lang", component: Landing },
+  { path: "/:lang/register", component: Register },
+  { path: "/:lang/notes/:noteId", component: Note },
+  { path: "/:lang/newnote", component: Note },
+  { path: "/:lang/dashboard", component: Dashboard },
+  { path: "/:lang/login", component: Login },
+  { path: "/:lang/:pathMatch(.*)*", component: Landing }
 ];
 
 const router = createRouter({
@@ -39,8 +43,6 @@ Axios.interceptors.request.use(
 
     if (token) {
       config.headers["Authorization"] = "Token " + token;
-    } else {
-      router.push("/login");
     }
 
     return config;

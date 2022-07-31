@@ -11,13 +11,13 @@
     <img :src="content" />
   </div>
 
-  <div v-if="tag === 'link'" class="link">
-    <a :href="content">
-      {{ content }}
+  <div v-if="tag === 'a'" class="link">
+    <a :href="content.split('\n')[1]">
+      {{ content.split('\n')[0] }}
     </a>
   </div>
 
-  <ul type="disc" v-if="tag === 'ul'">
+  <ul v-if="tag === 'ul'">
     <li v-for="item in content.split('\n')" :key="item">
       {{ item }}
     </li>

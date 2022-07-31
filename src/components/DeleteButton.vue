@@ -1,12 +1,17 @@
 <template>
   <div class="delete-button-container">
-    <button class="delete-button" @click="emitDelete()">Delete</button>
+    <button class="delete-button" @click="emitDelete()">{{ DeleteText }}</button>
   </div>
 </template>
 
 <script>
 export default {
   name: "Delete",
+  computed: {
+    DeleteText() {
+      return this.$route.params.lang === "ro" ? "Sterge notița" : "Удалить заметку";
+    },
+  },
   data() {
     return {};
   },

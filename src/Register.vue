@@ -1,69 +1,68 @@
 <template>
   <body>
-    <section class="register-page">
-      <div class="register">
-        <img
-          src="https://s3-alpha-sig.figma.com/img/eb24/ca1c/6b46f3629797526e406626fc13be7290?Expires=1629072000&Signature=DFPxeo1LPnVum8j3nD3Ykcg1wa3XgChaaHThZNMt1uSjuZ33HaSmZJns6C87ByrA8Pc0yleE-2xkB2FX-NyubBrzBWoKNYdQtY1LfTgeemenhsLzNRcFfgkdAmxAhlRsyAanTAD0ueuiEPJauYEmTgqpT0vFQuKG3mgBY0wCRiiopXsKKPFKtIbqbVZ6TBgzqr-iEdV4kABsKuTStrXEOcugmlRgg-7-AVKT1c-aJtLWTKDPwVO-e9gv9kJ1O7Bf1FTWOdY0P8BXCdgxQQW1WOoPvmWd3Pn7LKZzagEeq5gAFimAf1m11SZ6DL3BI3k-Tj3ZuFSgvG9x~iH8WSjbFw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-          alt="logo"
+  <section class="register-page">
+    <div class="register">
+      <img
+        src="/assets/logo.svg"
+        alt="logo"
+      />
+      <form>
+        <input
+          v-model="userName"
+          type="text"
+          name="Username"
+          id="username"
+          :placeholder="Username"
+          required
         />
-        <form>
-          <input
-            v-model="userName"
-            type="text"
-            name="username"
-            id="username"
-            placeholder="Username"
-            required
-          />
 
-          <input
-            v-model="fullName"
-            type="text"
-            name="fullname"
-            id="fullname"
-            placeholder="Full name"
-            required
-          />
+        <input
+          v-model="fullName"
+          type="text"
+          name="fullname"
+          id="fullname"
+          :placeholder="FullName"
+          required
+        />
 
-          <input
-            v-model="password"
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-            required
-          />
+        <input
+          v-model="password"
+          type="password"
+          name="password"
+          id="password"
+          :placeholder="Password"
+          required
+        />
 
-          <input
-            v-model="confirmPassword"
-            type="password"
-            name="confirmpassword"
-            id="confirmpassword"
-            placeholder="Confirm Password"
-            required
-          />
-          <p v-if="isRegisterCompleted">V-ati inregistrat cu succes!</p>
-          <div class="buttons">
-            <button
-              @click.prevent="onRegisterClick($event)"
-              class="register-button registerButton"
-            >
-              Register
-            </button>
+        <input
+          v-model="confirmPassword"
+          type="password"
+          name="confirmpassword"
+          id="confirmpassword"
+          :placeholder="ConfirmPassword"
+          required
+        />
+        <p v-if="isRegisterCompleted">V-ati inregistrat cu succes!</p>
+        <div class="buttons">
+          <button
+            @click.prevent="onRegisterClick($event)"
+            class="register-button registerButton"
+          >
+            {{ RegisterText }}
+          </button>
 
-            <button
-              @click.prevent="onLoginClick($event)"
-              class="register-button loginButton"
-            >
-              Login
-            </button>
-          </div>
-        </form>
-      </div>
-    </section>
+          <button
+            @click.prevent="onLoginClick($event)"
+            class="register-button loginButton"
+          >
+            {{ LoginText }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
   </body>
 </template>
-
 
 
 <script>
@@ -89,6 +88,27 @@ export default {
       isRegisterCompleted: false
     };
   },
+  computed: {
+    Username() {
+      return this.$route.params.lang === "ro" ? "Nume de utilizator" : "Имя пользователя";
+    },
+    Password() {
+      return this.$route.params.lang === "ro" ? "Parola" : "Пароль";
+    },
+    FullName() {
+      return this.$route.params.lang === "ro" ? "Numele Prenumele" : "Полное имя";
+    },
+    ConfirmPassword() {
+      return this.$route.params.lang === "ro" ? "Repetă parola" : "Подтвердить пароль";
+    },
+    LoginText() {
+      return this.$route.params.lang === "ro" ? "Logare" : "Вход";
+    },
+    RegisterText() {
+      return this.$route.params.lang === "ro" ? "Înregistrare" : "Регистрация";
+    }
+  },
+
   async created() {
     // const response = await axios.get("https://https://notes-api.girlsgoit.org/docs​/users​/" + this.userId + "/");
   },
@@ -126,7 +146,7 @@ export default {
 
         try {
           let result = await axios.post(
-            "https://notes-api.girlsgoit.org/users/register/",
+            "https://notes-api.girlsgoit.org/register/",
             data
           );
           this.isRegisterCompleted = true;
@@ -139,12 +159,11 @@ export default {
     },
 
     onLoginClick(event) {
-      this.$router.push(`/login`);
+      this.$router.push(`/${this.$route.params.lang}/login`);
     }
   }
 };
 </script>
-
 
 
 <style scoped>

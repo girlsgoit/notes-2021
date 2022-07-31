@@ -2,7 +2,7 @@
   <div>
     <section class="rectangle" v-if="isVisible">
       <div class="note-element">
-        <textarea class="input1" placeholder="Write your text here" v-model="text"></textarea>
+        <textarea class="input1" :placeholder="placeholderText" v-model="text"></textarea>
         <br />
       </div>
       <div class="buttons">
@@ -36,6 +36,11 @@ export default {
       noteId: null
     };
   },
+  computed: {
+    placeholderText() {
+      return this.$route.params.lang === "ro" ? "Scrieți textul aici" : "Напишите свой тескт здесь...";
+    }
+  },
   created() {
     this.noteId = this.id;
   },
@@ -63,21 +68,23 @@ export default {
       try {
         const response = await axiosMethod(
           `https://notes-api.girlsgoit.org/notes${
-            this.isNewNote ? "" : "/" + this.noteId + "/"
+            this.isNewNote ? "/" : "/" + this.noteId + "/"
           }`,
           {
             note_elements: this.blocks
           }
         );
 
+        console.log(response);
+
         this.text = "";
         this.$emit("index-added", this.indexMod);
         this.$emit("block-added", response.data.note_elements);
 
         if (this.isNewNote) {
-          this.$router.push("/notes/" + response.data.id);
+          this.$router.push(`/${this.$route.params.lang}/notes/` + response.data.id);
           this.noteId = response.data.id;
-          this.$forceUpdate();
+          // this.$forceUpdate();
         }
       } catch (error) {
         console.log(error);

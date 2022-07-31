@@ -2,12 +2,13 @@
   <header class="header">
     <div class="header-container">
       <div class="header-left">
-        <router-link to="/login" class="headerleft"> SIGN IN </router-link>
+        <router-link to="/ro/login" class="headerleft" v-if="$route.params.lang === 'ro'">LOGARE</router-link>
+        <router-link to="/ru/login" class="headerleft" v-else>вход</router-link>
       </div>
       <div class="header-middle">
-        <router-link to="/landing" class="logo">
+        <router-link :to="'/' + $route.params.lang + '/landing'" class="logo">
           <img
-            src="https://s3-alpha-sig.figma.com/img/eb24/ca1c/6b46f3629797526e406626fc13be7290?Expires=1629072000&Signature=DFPxeo1LPnVum8j3nD3Ykcg1wa3XgChaaHThZNMt1uSjuZ33HaSmZJns6C87ByrA8Pc0yleE-2xkB2FX-NyubBrzBWoKNYdQtY1LfTgeemenhsLzNRcFfgkdAmxAhlRsyAanTAD0ueuiEPJauYEmTgqpT0vFQuKG3mgBY0wCRiiopXsKKPFKtIbqbVZ6TBgzqr-iEdV4kABsKuTStrXEOcugmlRgg-7-AVKT1c-aJtLWTKDPwVO-e9gv9kJ1O7Bf1FTWOdY0P8BXCdgxQQW1WOoPvmWd3Pn7LKZzagEeq5gAFimAf1m11SZ6DL3BI3k-Tj3ZuFSgvG9x~iH8WSjbFw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+            src="/assets/logo.svg"
             alt="Logo"
           />
         </router-link>
@@ -16,7 +17,11 @@
         <nav>
           <ul>
             <li>
-              <router-link to="/register"> REGISTER </router-link>
+              <a href="#" @click="switchLanguage()"> {{ switchLang }}</a>
+            </li>
+            <li>
+              <router-link to="/ro/register" v-if="$route.params.lang === 'ro'"> ÎNREGISTRARE </router-link>
+              <router-link to="/ru/register" v-else> регистрация </router-link>
             </li>
           </ul>
         </nav>
@@ -27,7 +32,18 @@
 
 <script>
 export default {
-  name: "HeaderLogout"
+  name: "HeaderLogout",
+  computed: {
+    switchLang() {
+      return this.$route.params.lang === "ro" ? "RU" : "RO";
+    }
+  },
+  methods: {
+    switchLanguage() {
+      const nextLang = this.$route.params.lang === "ro" ? "/ru" : "/ro";
+      this.$router.push(nextLang + this.$route.fullPath.substring(3));
+    }
+  }
 };
 </script>
 

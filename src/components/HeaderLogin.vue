@@ -7,9 +7,9 @@
         </a>
       </div>
       <div class="header-middle">
-        <router-link to="/dashboard">
+        <router-link :to="'/' + $route.params.lang + '/dashboard'">
           <img
-            src="https://s3-alpha-sig.figma.com/img/eb24/ca1c/6b46f3629797526e406626fc13be7290?Expires=1629072000&Signature=DFPxeo1LPnVum8j3nD3Ykcg1wa3XgChaaHThZNMt1uSjuZ33HaSmZJns6C87ByrA8Pc0yleE-2xkB2FX-NyubBrzBWoKNYdQtY1LfTgeemenhsLzNRcFfgkdAmxAhlRsyAanTAD0ueuiEPJauYEmTgqpT0vFQuKG3mgBY0wCRiiopXsKKPFKtIbqbVZ6TBgzqr-iEdV4kABsKuTStrXEOcugmlRgg-7-AVKT1c-aJtLWTKDPwVO-e9gv9kJ1O7Bf1FTWOdY0P8BXCdgxQQW1WOoPvmWd3Pn7LKZzagEeq5gAFimAf1m11SZ6DL3BI3k-Tj3ZuFSgvG9x~iH8WSjbFw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+            src="/assets/logo.svg"
             alt="Logo"
           />
         </router-link>
@@ -18,13 +18,14 @@
         <nav>
           <ul>
             <li>
-              <router-link to="/settings"> SETTINGS </router-link>
+              <a href="#" @click="switchLanguage()"> {{ switchLang }}</a>
             </li>
             <li>
-              <router-link to="/help"> HELP </router-link>
+              <a href="" style="color: lightgray">HELP</a>
             </li>
             <li>
-              <a href="#" @click="signOut()"> SIGN OUT </a>
+              <a href="#" @click="signOut()" v-if="$route.params.lang === 'ro'">DELOGARE</a>
+              <a href="#" @click="signOut()" v-else>ВЫХОД</a>
             </li>
           </ul>
         </nav>
@@ -41,13 +42,22 @@ export default {
   props: {
     user: {}
   },
+  computed: {
+    switchLang() {
+      return this.$route.params.lang === "ro" ? "RU" : "RO";
+    }
+  },
   methods: {
     signOut() {
       localStorage.clear();
 
       emitter.emit("auth");
 
-      this.$router.push({ path: "/" });
+      this.$router.push(`/${this.$route.params.lang}`);
+    },
+    switchLanguage() {
+      const nextLang = this.$route.params.lang === "ro" ? "/ru" : "/ro";
+      this.$router.push(nextLang + this.$route.fullPath.substring(3));
     }
   }
 };

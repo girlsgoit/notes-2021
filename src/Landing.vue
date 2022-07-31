@@ -2,88 +2,92 @@
   <div class="container">
     <section id="hero-id">
       <div class="container-hero">
-        <h1>Let your contemplations slide</h1>
-        <p>
-          Be the person who makes everything become animated. Be other people’s
-          motivation for the every day life. Compose your own notes.
+        <h1 v-if="$route.params.lang === 'ro'">Urmărește complet scalabil</h1>
+        <h1 v-else>                Следуйте прямо за расширением</h1>
+
+        <p v-if="$route.params.lang === 'ro'">
+          Utilizați cadrele agile pentru a oferi un rezumat solid pentru prezentări de ansamblu la nivel înalt.
         </p>
+        <p v-else>Используйте гибкие интегрированные системы для обеспечения мощного краткого обзора для проведения
+          анализа на высоком уровне.</p>
       </div>
     </section>
 
     <section class="about">
-      <h2>About Notes App</h2>
+      <h2 v-if="$route.params.lang === 'ro'">Despre aplicația Notițe </h2>
+      <h2 v-else>                О приложении «Заметки»</h2>
 
-      <p>
-        Notes is the perfect app when you want to schedule your life. You can
-        keep count of your working out and sleep hours. You can track your
-        calories just by writing everything down by yourself. In that way your
-        lifestyle will be an organized and healthy one. Notes app may be the
-        motivation that you need when you want to make a change in your daily
-        routine.
+      <p v-if="$route.params.lang === 'ro'">Implementați în mod fosfluorescent metodologiile din întreaga lume cu tehnologie activată web. Coordonați
+        interactiv comerțul electronic proactiv prin gândire centrată pe proces. Urmăriți complet servicii scalabile
+        pentru clienți prin potențialități sustenabile</p>
+      <p v-else> Фосфлуоресцентно задействуйте мировые методологии с помощью веб-технологий. Интерактивно координируйте
+        опереждающую электронную коммерцию с помощью процессно-ориентированного мышления. Полностью реализуйте
+        масштабируемое обслуживание клиентов за счет устойчивых возможностей
       </p>
     </section>
 
     <section id="feature-boxes" class="features">
-      <h2>Features</h2>
-      <p>
-        Notes is the perfect place to take advantage of the free time on your
-        hands. It can give you a myriad of new opportunities in order to feel
-        free with yourself. It may also remind you of forgotten moments you
-        sometimes had and it will constantly bring back alluring memories from
-        back in time.
+      <h2 v-if="$route.params.lang === 'ro'">Features</h2>
+      <h2 v-else>Особенности</h2>
+      <p v-if="$route.params.lang === 'ro'">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum error blanditiis debitis pariatur deserunt
+        sapiente eius repudiandae. Laboriosam doloribus unde officiis, consequatur expedita at sunt eligendi culpa
+        deserunt molestiae voluptas.
       </p>
+      <p v-else>Человек в поисках комфортного, удобного, безопасного существования создает технические средства.</p>
       <div class="feature-container">
         <div class="feature-box">
           <img
-            src="https://image.flaticon.com/icons/svg/2921/2921226.svg"
+            src="/assets/ro/landing/features1.png"
             alt="create"
           />
-          <h3>Create Personalized Notes</h3>
-          <p>
-            Using Notes you can effortlessly personalize your items. In other
-            words, you are able to add photos, highlight or even add stickers to
-            everything you write.
+          <h3 v-if="$route.params.lang === 'ro'">Prima Caracteristica</h3>
+          <h3 v-else>Первая особенность</h3>
+          <p v-if="$route.params.lang === 'ro'">Imersiunea în nanotehnologie de-a lungul autostrăzii informaționale va închide bucla concentrându-se
+            doar pe linia de jos.</p>
+          <p v-else>Погружение в нанотехнологии вдоль информационной магистрали замкнет петлю
+            фокусирования исключительно на конечном результате.
           </p>
         </div>
         <div class="feature-box">
           <img
-            src="https://image.flaticon.com/icons/svg/2921/2921305.svg"
+            src="/assets/ro/landing/feature2.png"
             alt="share"
           />
-          <h3>Share Notes</h3>
-          <p>
-            The written notes can be easily shared with everyone else. It also
-            allows them to give feedback and to react with emojis to your
-            thoughts.
-          </p>
+          <h3 v-if="$route.params.lang === 'ro'">A doua Caracteristica</h3>
+          <h3 v-else>Вторая особенность</h3>
+          <p v-if="$route.params.lang === 'ro'">Valorificați fructele care nu se potrivesc pentru a identifica o activitate cu valoare adăugată la
+            testul beta. Depășiți decalajul digital.</p>
+          <p v-else>Извлечение выгоды из легко-доступных материалов для определения приблизительно
+            добавленную стоимость бета-теста. Преодоление цифрового разрыва.</p>
         </div>
         <div class="feature-box">
           <img
-            src="https://image.flaticon.com/icons/svg/2921/2921130.svg"
+            src="/assets/ro/landing/features3.png"
             alt="delete"
           />
-          <h3>Fast Delete</h3>
-          <p>
-            One click and your notes can be deleted. This site offers the
-            possibility to erase everything faster than you thought. It is
-            uncomplicated to use and easy on hand.
-          </p>
+          <h3 v-if="$route.params.lang === 'ro'">Robotica</h3>
+          <h3 v-else>Робототехника</h3>
+          <p v-if="$route.params.lang === 'ro'"> Aduceți la masă strategii de supraviețuire câștig-câștig pentru a asigura dominația proactivă. La
+            sfârșitul zilei, mergi mai departe.</p>
+          <p v-else>Внесение беспроигрышного вклада в групповую работу для стратегии выживания и
+            обеспечения упреждающего доминирования. Итог- движение вперед.</p>
         </div>
       </div>
     </section>
 
     <section class="grid_container">
-      <img src="/assets/pics/summer1.jpg" alt="images1" />
-      <img src="/assets/pics/summer2.png" alt="images2" />
+      <img src="/assets/ro/landing/images1.png" alt="images1" />
+      <img src="/assets/ro/landing/images2.png" alt="images2" />
 
-      <img src="/assets/pics/summer3.png" alt="images3" />
-      <img src="/assets/pics/summer4.jpg" alt="images4" />
+      <img src="/assets/ro/landing/images3.png" alt="images3" />
+      <img src="/assets/ro/landing/images4.png" alt="images4" />
 
-      <img src="/assets/pics/summer5.jpg" alt="images5" />
-      <img src="/assets/pics/summer6.jpg" alt="images6" />
+      <img src="/assets/ro/landing/images5.png" alt="images5" />
+      <img src="/assets/ro/landing/images10.png" alt="images6" />
 
-      <img src="/assets/pics/summer7.jpg" alt="images7" />
-      <img src="/assets/pics/summer8.jpg" alt="images8" />
+      <img src="/assets/ro/landing/images7.png" alt="images7" />
+      <img src="/assets/ro/landing/images8.png" alt="images8" />
     </section>
 
     <section class="all-logos">
